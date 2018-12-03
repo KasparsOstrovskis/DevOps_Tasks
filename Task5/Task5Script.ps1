@@ -1,6 +1,5 @@
 ﻿
 
-
 if(!(Test-Path variable:global:testVar))
 {
  
@@ -11,7 +10,11 @@ if(!(Test-Path variable:global:testVar))
 
 elseif(Test-Path variable:global:testVar)
 {
-
-Write-Output $testVar
-
+if($testVar -ne $null -and $testVar -ne ''){
+ Write-Output $testVar  
+ }
+ else
+ {
+    Write-Warning "Variable is null or empty"
+ }
 }
